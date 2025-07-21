@@ -49,7 +49,7 @@ json
 Kopyala
 Düzenle
 {
-  "kullanici_adi": "ali",
+  "kullanici_adi": "Mustafa",
   "sifre": "1234"
 }
 🔐 Giriş Yap
@@ -61,7 +61,7 @@ json
 Kopyala
 Düzenle
 {
-  "kullanici_adi": "ali",
+  "kullanici_adi": "Mustafa",
   "sifre": "1234"
 }
 Başarılı girişte JWT token döner.
