@@ -1,4 +1,5 @@
-📚 Kitaplık Yönetim Sistemi API
+📚 KİTAPLIK YÖNETİM SİSTEMİ API
+
 
 Bu proje, kullanıcıların kitap ekleyip, listeleyebileceği, güncelleyebileceği ve silebileceği basit bir RESTful API'dir. Flask, SQLAlchemy, Flask-Bcrypt ve JWT teknolojileri kullanılarak geliştirilmiştir.
 
@@ -44,7 +45,7 @@ json
 Kopyala
 Düzenle
 {
-  "kullanici_adi": "ali",
+  "kullanici_adi": "Mustafa",
   "sifre": "1234"
 }
 🔐 Kullanıcı Girişi
@@ -58,7 +59,7 @@ json
 Kopyala
 Düzenle
 {
-  "kullanici_adi": "ali",
+  "kullanici_adi": "Mustafa",
   "sifre": "1234"
 }
 Başarılı girişte JWT token döner.
