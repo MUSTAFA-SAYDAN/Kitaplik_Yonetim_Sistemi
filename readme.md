@@ -1,4 +1,5 @@
 📚 Kitaplık Yönetim Sistemi API
+
 Bu proje, kullanıcıların kitap ekleyip, listeleyebileceği, güncelleyebileceği ve silebileceği basit bir RESTful API'dir. Flask, SQLAlchemy, Flask-Bcrypt ve JWT teknolojileri kullanılarak geliştirilmiştir.
 
 🚀 Özellikler
