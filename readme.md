@@ -1,77 +1,77 @@
-📚 KİTAPLIK YÖNETİM SİSTEMİ API
-
+# 📚 Kitaplık Yönetim Sistemi API
 
 Bu proje, kullanıcıların kitap ekleyip, listeleyebileceği, güncelleyebileceği ve silebileceği basit bir RESTful API'dir. Flask, SQLAlchemy, Flask-Bcrypt ve JWT teknolojileri kullanılarak geliştirilmiştir.
 
-🚀 Özellikler
-Kullanıcı kayıt ve giriş işlemleri (JWT ile kimlik doğrulama)
+## Özellikler
 
-Kitap CRUD (Oluşturma, Okuma, Güncelleme, Silme) işlemleri
+- Kullanıcı kayıt ve giriş işlemleri (JWT ile kimlik doğrulama)
+- Kitap CRUD (Oluşturma, Okuma, Güncelleme, Silme) işlemleri
+- Token tabanlı yetkilendirme ile güvenlik
 
-Token tabanlı yetkilendirme ile güvenlik
+## Kurulum
 
-⚙️ Kurulum
 1. Projeyi klonlayın:
-bash
-Kopyala
-Düzenle
+
+```bash
 git clone https://github.com/MUSTAFA-SAYDAN/kitaplik_yonetim_sistemi.git
 cd kitaplik_yonetim_sistemi
-2. Sanal ortam oluşturun ve aktif edin:
+Sanal ortam oluşturun ve aktif edin:
+
 bash
 Kopyala
 Düzenle
 python -m venv venv
+
+# Windows için
 venv\Scripts\activate
-3. Gerekli paketleri yükleyin:
+
+# Linux/Mac için
+source venv/bin/activate
+Gerekli kütüphaneleri yükleyin:
+
 bash
 Kopyala
 Düzenle
 pip install -r requirements.txt
-4. Uygulamayı çalıştırın:
+Veritabanını oluşturun (ilk çalıştırmada otomatik oluşur):
+
 bash
 Kopyala
 Düzenle
 python app.py
-📬 API Kullanımı
+API Kullanımı
 ✅ Kullanıcı Kaydı
 Endpoint: /kayit
 
 Metod: POST
 
-JSON Gönderimi:
-
 json
 Kopyala
 Düzenle
 {
-  "kullanici_adi": "Mustafa",
+  "kullanici_adi": "ali",
   "sifre": "1234"
 }
-🔐 Kullanıcı Girişi
+🔐 Giriş Yap
 Endpoint: /giris
 
 Metod: POST
 
-JSON Gönderimi:
-
 json
 Kopyala
 Düzenle
 {
-  "kullanici_adi": "Mustafa",
+  "kullanici_adi": "ali",
   "sifre": "1234"
 }
 Başarılı girişte JWT token döner.
 
-➕ Kitap Ekleme
+➕ Kitap Ekle
 Endpoint: /kitaplar
 
 Metod: POST
 
 Header: Authorization: Bearer <token>
-
-JSON Gönderimi:
 
 json
 Kopyala
@@ -81,38 +81,37 @@ Düzenle
   "yazar": "George Orwell",
   "yayin_yili": 1949
 }
-📄 Kitapları Listeleme
+📄 Kitapları Listele
 Endpoint: /kitaplar
 
 Metod: GET
 
-📘 Tek Kitap Getirme
+📘 Kitap Detayı Getir
 Endpoint: /kitaplar/<id>
 
 Metod: GET
 
-✏️ Kitap Güncelleme
+✏️ Kitap Güncelle
 Endpoint: /kitaplar/<id>
 
 Metod: PUT
 
 Header: Authorization: Bearer <token>
 
-JSON Gönderimi:
-
 json
 Kopyala
 Düzenle
 {
   "isim": "Hayvan Çiftliği",
-  "yazar": "George Orwell"
+  "yazar": "George Orwell",
+  "yayin_yili": 1945
 }
-❌ Kitap Silme
+❌ Kitap Sil
 Endpoint: /kitaplar/<id>
 
 Metod: DELETE
 
 Header: Authorization: Bearer <token>
 
-📄 Lisans
+Lisans
 MIT Lisansı © 2025
