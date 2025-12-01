@@ -1,5 +1,4 @@
 from extensions import db,bcrypt
-from datetime import datetime
 
 class Kullanici(db.Model):
     __tablename__="kullanicilar"
@@ -22,7 +21,7 @@ class Kitap(db.Model):
     yazar=db.Column(db.String(100),nullable=False)
     sayfa_sayisi=db.Column(db.Integer,nullable=False)
     kategori=db.Column(db.String(100),nullable=False)
-    yayin_yili = db.Column(db.Date, nullable=False)
+    yayin_yili = db.Column(db.Integer, nullable=False)
     yayinevi=db.Column(db.String(100),nullable=False)
     okundu_mu=db.Column(db.Boolean,default=False,nullable=False)
 
