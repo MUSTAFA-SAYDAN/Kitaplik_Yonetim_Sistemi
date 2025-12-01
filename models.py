@@ -26,4 +26,16 @@ class Kitap(db.Model):
     okundu_mu=db.Column(db.Boolean,default=False,nullable=False)
 
     kullanici_id=db.Column(db.Integer,db.ForeignKey("kullanicilar.id"),nullable=False)
-    
+
+    def to_dict(self):
+        return{
+            "id":self.id,
+            "isim":self.isim,
+            "yazar":self.yazar,
+            "sayfa_sayisi":self.sayfa_sayisi,
+            "kategori":self.kategori,
+            "yayin_yili":self.yayin_yili,
+            "yayinevi":self.yayinevi,
+            "okundu_mu":self.okundu_mu,
+            "kullanici_id":self.kullanici_id
+        }
