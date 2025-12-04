@@ -7,3 +7,9 @@ def kullanici_kaydet(kullanici_adi,sifre):
     db.session.add(yeni_kullanici)
     db.session.commit()
     return yeni_kullanici
+
+def kullanici_dogrula(kullanici_adi,sifre):
+    kullanici=Kullanici.query.filter_by(kullanici_adi=kullanici_adi).first()
+    if not kullanici or not kullanici.sifre_kontrol(sifre):
+        return None
+    return kullanici
