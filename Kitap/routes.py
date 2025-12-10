@@ -25,3 +25,26 @@ def kitap_ekle_route():
         request.kullanici_id
     )
     return jsonify({"mesaj":"Kitap eklendi","kitap_id":yeni_kitap.id}), 201
+
+
+@kitap_bp.route("/",methods=["GET"])
+@token_dogrula
+def kitap_listele_route():
+    kitaplar=Kitap.query.filter_by(kullanici_id=request.kullanici_id).all()
+
+    liste=[]
+    for k in kitaplar:
+        liste.append(
+            {
+            "id":k.id,
+            "isim":k.isim,
+            "yazar":k.yazar,
+            "sayfa_sayisi":k.sayfa_sayisi,
+            "kategori":k.kategori,
+            "yayin_yili":k.yayin_yili,
+            "yayinevi":k.yayinevi,
+            "okundu_mu":k.okundu_mu
+        }
+        )
+
+    return jsonify(liste),200
