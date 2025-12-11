@@ -48,3 +48,22 @@ def kitap_listele_route():
         )
 
     return jsonify(liste),200
+
+
+@kitap_bp.route("/<int:id>",methods=["GET"])
+@token_dogrula
+def kitap_getir_route(id):
+    kitap=kitap_getir(id,request.kullanici_id)
+    if not kitap:
+        return jsonify({"hata":"Kitap bulunamadı"}),404
+
+    return jsonify({
+        "id":kitap.id,
+        "isim":kitap.isim,
+        "yazar":kitap.yazar,
+        "sayfa_sayisi":kitap.sayfa_sayisi,
+        "kategori":kitap.kategori,
+        "yayin_yili":kitap.yayin_yili,
+        "yayinevi":kitap.yayinevi,
+        "okundu_mu":kitap.okundu_mu
+    }),200
