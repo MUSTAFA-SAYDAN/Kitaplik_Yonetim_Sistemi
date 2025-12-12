@@ -67,3 +67,30 @@ def kitap_getir_route(id):
         "yayinevi":kitap.yayinevi,
         "okundu_mu":kitap.okundu_mu
     }),200
+
+
+@kitap_bp.route("/<int:id>", methods=["PUT"])
+@token_dogrula
+def kitap_guncelle_route(id):
+    veri = request.get_json()
+
+    eksik = eksik_alan_kontrol(veri, ["isim","yazar","sayfa_sayisi","kategori","yayin_yili","yayinevi","okundu_mu"])
+    if eksik:
+        return jsonify({"hata":f"{eksik} alanı eksik"}),400
+
+    guncel_kitap=kitap_guncelle(
+        id,
+        veri["isim"],
+        veri["yazar"],
+        veri["sayfa_sayisi"],
+        veri["kategori"],
+        veri["yayin_yili"],
+        veri["yayinevi"],
+        veri["okundu_mu"],
+        request.kullanici_id
+    )
+
+    if not guncel_kitap:
+        return jsonify({"hata":"Kitap bulunamadı veya yetkiniz yok"}),404
+
+    return jsonify({"mesaj":"Kitap güncellendi"}),200
