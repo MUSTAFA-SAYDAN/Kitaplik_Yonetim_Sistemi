@@ -94,3 +94,14 @@ def kitap_guncelle_route(id):
         return jsonify({"hata":"Kitap bulunamadı veya yetkiniz yok"}),404
 
     return jsonify({"mesaj":"Kitap güncellendi"}),200
+
+
+@kitap_bp.route("/<int:id>",methods=["DELETE"])
+@token_dogrula
+def kitap_sil_route(id):
+    silindi=kitap_sil(id,request.kullanici_id)
+    if not silindi:
+        return jsonify({"hata":"Kitap bulunamadı veya yetkiniz yok"}),404
+
+    return jsonify({"mesaj":"Kitap silindi"}),200
+
