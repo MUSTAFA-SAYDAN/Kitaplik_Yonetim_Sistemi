@@ -17,3 +17,9 @@ def kitap_ekle(isim,yazar,sayfa_sayisi,kategori,yayin_yili,yayinevi,okundu_mu,ku
     db.session.commit()
 
     return yeni_kitap
+
+
+def kitap_getir(kitap_id,kullanici_id):
+    kitap=Kitap.query.filter_by(id=kitap_id,kullanici_id=kullanici_id).first()
+
+    return kitap
