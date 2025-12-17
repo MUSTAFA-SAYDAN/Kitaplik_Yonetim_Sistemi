@@ -41,3 +41,14 @@ def kitap_guncelle(kitap_id,isim,yazar,sayfa_sayisi,kategori,yayin_yili,yayinevi
     db.session.commit()
 
     return kitap
+
+
+def kitap_sil(kitap_id,kullanici_id):
+    kitap = Kitap.query.filter_by(id=kitap_id,kullanici_id=kullanici_id).first()
+    if not kitap:
+        return False
+
+    db.session.delete(kitap)
+    db.session.commit()
+
+    return True
